@@ -27,7 +27,7 @@ namespace UAsync {
 
   void IntervalAction::run() {
     auto now = millis();
-    if (this->ms > now - this->lastMs) return;
+    if (this->ms >= now - this->lastMs) return;
     this->lastMs = now;
 
     this->cb();
@@ -35,7 +35,7 @@ namespace UAsync {
 
   void TimeoutAction::run() {
     auto now = millis();
-    if (this->ms > now - this->lastMs) return;
+    if (this->ms >= now - this->lastMs) return;
     this->lastMs = now;
 
     this->cb();
